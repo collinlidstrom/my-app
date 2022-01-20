@@ -4,9 +4,7 @@ import { Input } from 'rsuite';
 import { Calendar } from 'rsuite';
 // import { Input } from './Input'
 export default function Resume(props) {
-
-    const [name, setName] = useState('Looking for something?')
-
+    const name = 'Name';
     return (
         <div>
             <h3>Strebin Estate Vineyards</h3>
