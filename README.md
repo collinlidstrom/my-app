@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e29f4d69-fab8-4921-a609-5fac3b4a4edb/deploy-status)](https://app.netlify.com/sites/strebin-estate-vineyards/deploys)
 
-https://strebin-estate-vineyards.netlify.app/
+https://lindy.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
