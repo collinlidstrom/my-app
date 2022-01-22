@@ -8,8 +8,6 @@ import {
   CustomProvider,
   ButtonToolbar,
   Sidenav,
-  Nav,
-  Dropdown
 } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 import "./App.css";
@@ -27,7 +25,15 @@ function App() {
 
   return (<CustomProvider theme={theme}>
     <div className="App">
-      <br/>
+      <Sidenav>
+        <Button appearance="default" onClick={switchTheme} value="light">
+          Light
+        </Button>
+        &nbsp;
+        <Button appearance="primary" onClick={switchTheme} value="dark">
+          Dark
+        </Button>
+      </Sidenav>
       <div style={spinnerStyle} align='left'>
         <Title/>
       </div>

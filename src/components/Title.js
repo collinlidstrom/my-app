@@ -1,14 +1,16 @@
 import React from 'react'
 import date from 'date-and-time';
-import {Calendar, Input, Notification, toaster} from 'rsuite';
-import {FaSpinner} from 'react-icons/fa';
+import {Calendar, Notification} from 'rsuite';
 
 export default function Title(props) {
 
-  const name = 'Name';
-
   const lastModifiedDate = date.format(new Date(), 'MM-DD-YYYY'); // => '02-MM-2015'
-  const lastUpdatedBy = 'Lindy'
+  const lastUpdatedBy = <a href='https://www.linkedin.com/in/collinlidstrom/'>
+    Lindy
+  </a>
+
+  // patch notes comment to display on page for updates
+  const patchNotes = ' - added light / dark theme bar for account settings'
 
   const titleStyle = {
     'paddingLeft': '20px'
@@ -16,18 +18,19 @@ export default function Title(props) {
 
   const spinnerStyle = {}
 
-  return (<div align='left' style={titleStyle}>
-    <h3>under development.</h3>
-    <br/>
+  return (<div align='center' style={titleStyle}>
+    <h2>under development.</h2>
     <br/>
     <div style={spinnerStyle}>
       <Notification>
-        <div style={spinnerStyle} align='left'>
-          <strong>last updated:{lastModifiedDate}</strong>
-          <br/> {lastUpdatedBy}
+        <div style={spinnerStyle} align='center'>
+          <strong>last update on {lastModifiedDate}&nbsp; by
+          </strong>&nbsp; {lastUpdatedBy}
+          <br/>
+          <div style={titleStyle}>
+            {patchNotes}
+          </div>
         </div>
-        <br/>
-        <br/>
       </Notification>
     </div>
     <br/>
