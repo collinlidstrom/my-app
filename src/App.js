@@ -1,21 +1,25 @@
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import Title from "./components/Title";
-import {FaSpinner} from 'react-icons/fa';
+import { FaSpinner } from 'react-icons/fa';
 import {
   Button,
   CustomProvider,
-  ButtonToolbar,
-  Sidenav,
+  List,
 } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 import "./App.css";
+import ListItem from "rsuite/esm/List/ListItem";
 
 function App() {
 
   const [theme, setTheme] = useState('dark');
   const switchTheme = e => setTheme(e.target.value);
+
+  document.body.style = 'background: #d12f1d;';
+  // Or with CSS
+  document.body.classList.add('background-red');
 
   const spinnerStyle = {
     paddingLeft: '40px',
@@ -25,40 +29,39 @@ function App() {
 
   return (<CustomProvider theme={theme}>
     <div className="App">
-      <Sidenav>
-        <Button appearance="default" onClick={switchTheme} value="light">
-          Light
-        </Button>
-        &nbsp;
-        <Button appearance="primary" onClick={switchTheme} value="dark">
-          Dark
-        </Button>
-      </Sidenav>
-      <div style={spinnerStyle} align='left'>
-        <Title/>
-      </div>
       <br/>
-      <div style={spinnerStyle} align='left'>
-        <FaSpinner icon="spinner" className='spinner'/>
-      </div>
-      <div hidden="hidden">
-        <ButtonToolbar>
-          <Button appearance="default" onClick={switchTheme} value="light">
-            Light
-          </Button>
-          <Button appearance="primary" onClick={switchTheme} value="dark">
-            Dark
-          </Button>
-          <Button appearance="ghost" onClick={switchTheme} value="high-contrast">
-            Contrast
-          </Button>
-        </ButtonToolbar>
+      <Title />
+      <br/>
+      <div className='container'>
+        <List align='center'>
+          <ListItem>
+            Inventory Management (auto-order)
+          </ListItem>
+          <ListItem>
+            Document Scanning
+          </ListItem>
+          <ListItem>
+            Document Management
+          </ListItem>
+          <ListItem>
+            Email Scanning
+          </ListItem>
+          <ListItem>
+            Time Optimization
+          </ListItem>
+          <ListItem>
+            Record Management
+          </ListItem>
+          <ListItem>
+            Financial Forecasts
+          </ListItem>
+        </List>
       </div>
     </div>
   </CustomProvider>);
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App/>, rootElement);
+ReactDOM.render(<App />, rootElement);
 
 export default App;
