@@ -1,6 +1,6 @@
 import React from 'react'
 import date from 'date-and-time';
-import {Calendar, Notification} from 'rsuite';
+import {Calendar} from 'rsuite';
 import companyLogo from './192.png';
 
 
@@ -13,13 +13,14 @@ export default function Title(props) {
     'paddingLeft': '20px'
   }
 
-  const spinnerStyle = {}
-
   return (<div align='center' style={titleStyle}>
     <div align={'left'}>
-      <img src={companyLogo}/>
+      <img src={companyLogo} alt=""/>
       <p>Providing small businesses with optimization solutions. We offer products and consulting for efficiency, time management and software solutions.</p>
     </div>
+    <p align='right'>
+      Today's Date: {lastModifiedDate}&nbsp;&nbsp;
+    </p>
     <Calendar hidden/>
   </div>)
 }

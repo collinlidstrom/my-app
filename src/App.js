@@ -1,10 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import ReactDOM from "react-dom";
 import Title from "./components/Title";
-import { FaSpinner } from 'react-icons/fa';
 import {
-  Button,
   CustomProvider,
   List,
 } from "rsuite";
@@ -14,24 +11,21 @@ import ListItem from "rsuite/esm/List/ListItem";
 
 function App() {
 
-  const [theme, setTheme] = useState('dark');
-  const switchTheme = e => setTheme(e.target.value);
 
   document.body.style = 'background: #d12f1d;';
   // Or with CSS
   document.body.classList.add('background-red');
 
-  const spinnerStyle = {
-    paddingLeft: '40px',
-    paddingTop: '40px',
-    paddingRight: '40px'
-  }
+  // const spinnerStyle = {
+  //   paddingLeft: '40px',
+  //   paddingTop: '40px',
+  //   paddingRight: '40px'
+  // }
 
-  return (<CustomProvider theme={theme}>
+  return (<CustomProvider theme={"dark"}>
     <div className="App">
       <br/>
       <Title />
-      <br/>
       <div className='container'>
         <List align='center'>
           <ListItem>
