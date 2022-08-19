@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Title from "./components/Title";
 import ExportComponent from './components/ExportComponent';
+import "bootstrap"
 import {
   CustomProvider,
   Footer,
@@ -26,7 +27,19 @@ function App() {
 
   return (<CustomProvider theme={"dark"}>
     <div className="App">
-      <br />
+      <div className="collapse" id="navbarToggleExternalContent">
+        <div className="bg-dark p-4">
+          <h5 className="text-white h4">Sail Demo</h5>
+          <span className="text-muted">Providing small businesses with optimization solutions. We offer products and consulting for efficiency, time management and software solutions.</span>
+        </div>
+      </div>
+      <nav className="navbar navbar-dark bg-dark">
+        <div className="container-fluid">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
       <Title />
       <ExportComponent />
       <Footer>

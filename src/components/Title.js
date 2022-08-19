@@ -14,10 +14,6 @@ export default function Title(props) {
   return (<div align='center' style={titleStyle}>
     <div align={'left'}>
       {/* <img src={companyLogo} alt=""/> */}
-      <h1>
-        SAIL DEMO
-      </h1>
-      <p>Providing small businesses with optimization solutions. We offer products and consulting for efficiency, time management and software solutions.</p>
     </div>
     <br></br>
     <p align='left'>
