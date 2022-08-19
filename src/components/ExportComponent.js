@@ -1,4 +1,5 @@
 import React from 'react'
+import { Badge } from 'rsuite'
 
 
 export default function ExportComponent(props) {
@@ -9,22 +10,47 @@ export default function ExportComponent(props) {
         'borderColor': 'white'
     }
 
+    function processUpload() {
+        console.log('\n')
+        console.log('processing file upload')
+        console.log('uploading file to aws s3 bucket')
+        console.log('file upload successful.\n')
+        document.getElementById('successAlert').hidden = false;
+    }
+
     return (
         <div>
-            <br></br>
+            <br />
             <div style={titleStyle}>
                 <h4 align='left'>
                     PDF Extract Demo
                 </h4>
-                <br></br>
+                <br />
+                <div id='successAlert' class="alert alert-success" role="alert" hidden>
+                    Upload to aws-textract was successful!
+                </div>
                 <table>
                     <tr>
-                        <div className="mb-3">
+                        <td>
                             <label for="formFile" className="form-label">Default file input example</label>
                             <input className="form-control" type="file" id="formFile" />
-                            <br></br>
-                            <button type="button" className="btn btn-primary">Extract</button>
-                        </div>
+                            <br />
+                            <br />
+                            <button id='submitClicked' type="button" className="btn btn-primary" onClick={processUpload}>Extract</button>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <figure className="figure">
+                                <img src="logo192.png" className="figure-img img-fluid rounded" alt="..." />
+                                <figcaption className="figure-caption text-end">A caption for the above image.</figcaption>
+                            </figure>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Input Functionality Coming Soon</h5>
+                        </td><td><Badge />
+                        </td>
                     </tr>
                     <tr>
                         <div className="mb-3">
@@ -51,11 +77,8 @@ export default function ExportComponent(props) {
                         </div>
                     </tr>
                 </table>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
             </div>
+            <br />
         </div>
     )
 }
