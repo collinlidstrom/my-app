@@ -42,9 +42,9 @@ function App() {
       </nav>
       <div className='container'>
         <br />
-          <h1 >
-            Sail
-          </h1>
+        <h1 >
+          Sail
+        </h1>
         <br />
         <br />
         <div className="col d-flex justify-content-center">
