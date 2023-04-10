@@ -1,57 +1,62 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function App() {
-  const [inputText, setInputText] = useState('');
-  const [response, setResponse] = useState(null);
+const App = () => {
+  const [input, setInput] = useState('');
+  const [response, setResponse] = useState('');
 
-  const apiKey = 'your-api-key'; // Replace with your GPT-4 API key
-  const apiUrl = 'https://api.example.com/v1/your-gpt-4-endpoint'; // Replace with the GPT-4 API endpoint
-
-  const handleInputChange = (e) => {
-    setInputText(e.target.value);
+  const handleChange = (event) => {
+    setInput(event.target.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const result = await axios.post(
-        apiUrl,
+        'https://api.openai.com/v1/engines/davinci-codex/completions',
         {
-          // Add your request payload here (prompt, max tokens, etc.)
-          prompt: inputText,
+          prompt: input,
+          max_tokens: 100,
+          n: 1,
+          stop: null,
+          temperature: 1.0,
         },
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
+            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`,
           },
         },
       );
-      setResponse(result.data);
+      setResponse(result.data.choices[0].text);
     } catch (error) {
-      console.error('Error making API call:', error);
+      console.error('Error fetching response:', error);
     }
   };
 
   return (
     <div className="App">
-      <h1>GPT-4 API Example</h1>
+      <h1>GPT-4 Chat App</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Input Text:
-          <input type="text" value={inputText} onChange={handleInputChange} />
+        <label htmlFor="input">
+          Enter your prompt:
+          <input
+            type="text"
+            id="input"
+            value={input}
+            onChange={handleChange}
+          />
         </label>
         <button type="submit">Submit</button>
       </form>
       {response && (
         <div>
-          <h2>Response</h2>
-          <pre>{JSON.stringify(response, null, 2)}</pre>
+          <h2>Response:</h2>
+          <p>{response}</p>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default App;
